@@ -1,0 +1,14 @@
+{
+    "name": "paulc1379-node-lib",
+    "version": "0.0.0",
+    "description": "personal-node-lib",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Paul Capatina-Voila",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.17.3"
+    }
+}
