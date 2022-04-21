@@ -1,9 +1,11 @@
-import express from 'express'
+/**import express from 'express'
 const app = express()
+*/
 import logger from './lib/console/logger.js'
 const log = logger.logger
 const source = 'server'
-import { join, dirname } from 'path'
+
+/**import { join, dirname } from 'path'
 
 import indexRouter from './routes/indexRouter.js'
 import usersRouter from './routes/usersRouter.js'
@@ -31,4 +33,11 @@ const server = app.listen( port, () => {
         "Listening on port ><.",
         logger.getOptions( { style: 'blink', fg: 'black', bg: 'white' } ),
         { replace: "><", values: [ port.toString() ] } )
+} )
+*/
+
+import testConsole from './lib/console/testConsole.js'
+log( source, "info", "Initiating Console Tests ..." )
+testConsole.runConsoleTests( 16 ).then( () => {
+    log( source, "info", "End Console Tests." )
 } )
