@@ -1,6 +1,7 @@
 import express from 'express'
 const app = express()
 import logger from './lib/console/logger.js'
+const log = logger.logger
 const source = 'server'
 import { join, dirname } from 'path'
 
@@ -15,17 +16,19 @@ app.use( '/', indexRouter )
 app.use( '/api/users', usersRouter )
 
 // error handler
-app.use( function ( err, req, res, _next ) {
+app.use( ( error, req, res, _next ) => {
     // set locals, only providing error in development
-    res.locals.message = err.message
-    res.locals.error = req.app.get( 'env' ) === 'development' ? err : {}
+    res.locals.message = error.message
+    res.locals.error = req.app.get( 'env' ) === 'development' ? error : {}
 
-    // render the error page
-    res.status( err.status || 500 )
-    res.render( 'error' )
+    res.status( error.status || 500 )
+    res.send( { "error": error } )
 } )
 
 const port = process.env.PORT || 3000
 const server = app.listen( port, () => {
-    logger( source, 'info', 'Listening on {%?%}', 'blink', 'black', 'white', [ port, null ] )
+    log( source, 'info',
+        "Listening on port ><.",
+        logger.getOptions( { style: 'blink', fg: 'black', bg: 'white' } ),
+        { replace: "><", values: [ port.toString() ] } )
 } )
