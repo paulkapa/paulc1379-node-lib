@@ -1,9 +1,9 @@
 import { Router } from 'express'
-import { join } from 'path'
+import { resolve } from 'path'
 const indexRouter = Router()
 
 indexRouter.get( "/", ( _req, res, _next ) => {
-    res.sendFile( join( __dirname, '../public/index.html' ), { title: 'Home' } )
+    res.sendFile( resolve( './frontend/public', 'index.html' ) )
 } )
 
 export default indexRouter
