@@ -12,10 +12,10 @@
     "author": "Paul Capatina-Voila",
     "license": "MIT",
     "dependencies": {
-        "express": "^4.17.3"
+        "express": "^4.18.1",
+        "node-fetch": "^3.2.4"
     },
     "devDependencies": {
-        "@types/node": "^17.0.30",
         "nodemon": "^2.0.15"
     }
 }
